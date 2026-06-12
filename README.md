@@ -73,6 +73,13 @@ A good starting point is:
 
    Or apply individual manifests from the kubernetes folder as needed.
 
+10. After the EKS cluster is created, set up the ingress load balancer to access the application:
+
+    cd ../ultimate-devops-project-demo/kubernetes/frontendproxy/
+    kubectl apply -f ingress.yaml
+
+    Before applying the ingress manifest, make sure the ingress controller is already installed, or run the ALB controller setup script from the demo repository first.
+
 ## Important note about Terraform state
 
 The Terraform configuration in eks-install uses an S3 backend with the following settings:
@@ -176,3 +183,7 @@ You can extend this repo by:
 - Connecting the cluster to monitoring and logging tools
 
 
+after creating eks cluster, you need to create ingress lb to access the application
+cd ultimate-devops-project-demo/kubernetes/frontendproxy/
+kubectl apply -f ingress.yaml
+before that create ingress controller or run the script create-alb-controller.sh 
